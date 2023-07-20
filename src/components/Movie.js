@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import ModalMovie from './ModalMovie';
 import { useState } from 'react';
 
+
 function Movie(props) {
 
 
@@ -13,7 +14,7 @@ function Movie(props) {
   const handleShow = () => setShow(true);
 
   return (
-    <div>
+    <div >
       <Card style={{ width: '18rem'}}>
         <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${props.data.poster_path}`} />
         <Card.Body>
@@ -36,10 +37,15 @@ function Movie(props) {
             </>
           }
 
-          <Button onClick={handleShow} variant="primary">Show Modal</Button>
+          <Button onClick={handleShow} variant="primary">Add To Favorite </Button>
         </Card.Body>
       </Card>
-      <ModalMovie modalData={props.data} handleClose={handleClose} handleShow={handleShow} show={show} />
+      <ModalMovie 
+      commentHandler={props.commentHandler} 
+      modalData={props.data} 
+      handleClose={handleClose} 
+      handleShow={handleShow} show={show} />
+
     </div>
   )
 }

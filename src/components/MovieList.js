@@ -7,7 +7,7 @@ function MovieList(props){
     return(
         <div className="main">
       {  props.data.map((obj,i)=>(
-            <Movie key={i} data={obj}/>
+            <Movie commentHandler={props.commentHandler} key={i} data={obj}/>
         ))
         }
         </div>
