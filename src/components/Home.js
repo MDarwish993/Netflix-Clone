@@ -12,6 +12,17 @@ function Home(){
         const movies = await response.json();
        setData(movies)
     }
+    function commentHandler(newMovie,id){
+        data.map((movie) => {
+            if(movie.id === id){
+                movie.comment = newMovie.userComment;
+              return movie;
+            }else{
+              return movie;
+            }
+          })
+      }
+
     useEffect(() => {
         getTrndingMovies()
         
@@ -19,7 +30,7 @@ function Home(){
 
     return(
         <>
-        <MovieList data={data}/>
+        <MovieList commentHandler={commentHandler} data={data}/>
         </>
     )
 }
